@@ -1,12 +1,11 @@
 Package: adaRFTrain
 Type: Package
-Title: grid search for dt or rf
+Title: grid search for rf
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Ningze Sun
+Maintainer: Ningze Sun <biosunningze@gmail.com>
+Description: Use grid search with cross validation to search rf hyper-parameter and do rf and dt.
+License: 
 Encoding: UTF-8
 LazyData: true
 Imports: 
