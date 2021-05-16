@@ -1,0 +1,89 @@
+---
+title: "Classification Trees and Random Forests"
+author: "Brandi Christiano, Ningze Sun & Janna Muhammad"
+date: "May 17,2021"
+output: html_document
+---
+
+## Objectives: 
+The goal of this presentation and vignette is to descriptively explore classification trees and random forests as the premise of our Applied Data Analysis Class final project. We have included a custom package {adaRFTrain} as well as examples of this package at work using the Iris data set acquired from Kaggle. 
+
+
+
+##  Decision Trees
+A decision tree is a type of machine learning in which an algorithm predicts a result based on features of data. Visually, these trees create an interpretable walk through of how outputs are determined. 
+```{r}
+knitr::include_graphics("Images/decision tree 1.png")
+```
+ 
+Each internal node breaks off into leaves. Each leaf is a class or a probability distribution of the class. By splitting the source set of data into subsets, leaves are made based on attribute value tests. This recursive partitioning is repeated on each derived subset.  
+The data is initially split based on a feature that results in the largest Information Gain (IG). The goal is to calculate how much accuracy each split will cost us. The split that costs the least is chosen as a new node. To find the IG of each node, you use the following equation.
+
+
+```{r}
+knitr::include_graphics("Images/decision tree 2.png")
+```
+
+There are two main types of decision trees. 
+1.	Classification – the output is a nominal variable. Discrete. Class. Categorical
+2.	Regression – the output is a real number. Continuous. Numerical
+
+We focused on classification trees for this project. 
+
+
+## Classification Trees
+#### **Background**
+
+A classification tree visually represents a type of algorithm that is used for a classification task, such as when data needs to be categorized into classes that belong to a specific response variable. The algorithm identifies the "class" that the variable of interest would fall into. 
+
+```{r}
+knitr::include_graphics("Images/donut tree.png")
+```
+
+#### **How they work**
+Classification trees are based on the homogeneity of the data. Measures of impurities (such as entropy or Gini index) quantify the homogeneity. Entropy measures how much information is expected to be gained. By using the following equation, you can split the data set into subsets using the attribute that gives minimized entropy after splitting. 
+
+```{r}
+knitr::include_graphics("Images/entropy 1.png")
+```
+
+We are interested in the 'if-then' conditions, therefore we can disregard the assumption that the variables are linear. The dependent variable can assume either numerous different variables or one mutually exclusive value. The categorical variables can be numerous. 
+
+#### **Limitations and Disadvantages**
+One common limitation includes the likeliness that data will be overfit. You can use pruning to avoid overfitting. There is also a high chance of the variance affecting the prediction. Additionally, there is low bias which can make it difficult to incorporate new data once the tree has already been established. 
+
+
+## Random Forests
+A random forest is an ensemble of machine learning algorithms that is operated by building multiple decision trees. It can be used as a classification or regression model. All decision trees in the forest are trained on a bootstrapped, which is a subset of the dataset.
+```{r}
+knitr::include_graphics("Images/regression 1.png")
+```
+
+The out of bag dataset refers to the portion of samples that were not included in the construction of the decision tree, but the model evaluates its perfromae by running the samples that were not included in the construction through the forest.
+
+In a random forest we randomly select a predefined number of features to split a decision tree which results in a larger variance between trees.
+
+#### Classification : 
+When a random forest is presented with a new sample it takes the majority prediction made by each decision tree in the forest and makes the final prediction.
+
+#### Regression 
+Uses the average of each individual decision tree in the forest.
+
+#### **Advantage :**
+Automatic selection of variables 
+Has built in estimate of accuracy 
+Fast and effective for large datasets 
+Flexibility to include data from previous node in the same tree 
+
+#### **Disadvantage :**
+ A large amount of trees can make the model slow and not effective for real time predictions .
+The classifier wont overfit the model is there is not wright trees in the forest
+
+
+## References 
+ - https://www.tutorialspoint.com/big_data_analytics/decision_trees.htm#:~:text=A%20Decision%20Tree%20is%20an,such%20as%20classification%20or%20regression.&text=Each%20leaf%20of%20the%20tree,on%20an%20attribute%20value%20test.
+- https://clarklabs.org/classification-tree-analysis/
+- https://towardsdatascience.com/https-medium-com-lorrli-classification-and-regression-analysis-with-decision-trees-c43cdbc58054
+-https://medium.com/@mike.s.taylor101/random-forest-a-simple-overview-a6324f18789a
+- https://www.digitalvidya.com/blog/classification-and-regression-trees/
+-https://towardsdatascience.com/decision-trees-in-machine-learning-641b9c4e8052
