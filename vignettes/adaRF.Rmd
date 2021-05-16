@@ -26,9 +26,13 @@ The goal of this presentation and vignette is to descriptively explore classific
 ## Preliminaries 
 Load the following packages into **_R_**
 
-Please use this command to install adaRFTrain:
+Please use this command in to install adaRFTrain:
 
-
+```{r install}
+# library(devtools)
+# install_github("ningzesun1993/adaRFTrain", build_vignettes = TRUE, force = TRUE)
+# browseVignettes("adaRFTrain")
+```
 
 And please command out devtools::load_all(".") if you want to run it
 

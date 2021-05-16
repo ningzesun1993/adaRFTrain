@@ -1,11 +1,13 @@
 library(devtools)
-library(usethis)
-devtools::build()
-devtools::load_all()
+install_github("ningzesun1993/adaRFTrain", build_vignettes = TRUE, force = TRUE)
 library(adaRFTrain)
 library(caret)
 library(tree)
 library(superml)
+
+
+browseVignettes("adaRFTrain")
+
 
 data(iris)
 df = iris
