@@ -5,7 +5,8 @@ Version: 0.1.0
 Author: Ningze Sun
 Maintainer: Ningze Sun <biosunningze@gmail.com>
 Description: Use grid search with cross validation to search rf hyper-parameter and do rf and dt.
-License: 
+Depends: R (>= 4.0.5)
+License: No license
 Encoding: UTF-8
 LazyData: true
 Imports: 

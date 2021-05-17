@@ -223,12 +223,19 @@ So the basic idea of random forest is to select predefined rows and several attr
 to train different models and combine the prediction to final results, voting for classification and averaging 
 for regression
 
-A random forest is an ensemble of machine learning algorithms that is operated by building multiple decision trees. It can be used as a classification or regression model. All decision trees in the forest are trained on a bootstrapped, which is a subset of the dataset.
+A random forest is an ensemble of machine learning algorithms that is operated by building multiple decision trees. 
+
+It can be used as a classification or regression model. 
+
+All decision trees in the forest are trained on a bootstrapped, which is a subset of the dataset.
 
 
-The out of bag dataset refers to the portion of samples that were not included in the construction of the 
-decision tree, but the model evaluates its perfromae by running the samples that were not included 
-in the construction through the forest.
+The out of bag dataset refers to the portion of samples that were not included in the construction of the decision tree. 
+
+A Bootstrapped dataset recreates many simulated samples and can help you calculate standard errors, construct confidence intervals, and perform hypothesis testing for many  sample statistics.
+
+The model evaluates its performance by running the samples that were not included in the construction through the forest.
+
 
 In a random forest we randomly select a predefined number of features to split a decision tree which results in a larger variance between trees.
 
@@ -236,9 +243,11 @@ Theoretically and statistically, decsion tree has a low bias but high variance a
 
 
 #### Classification : 
+
 When a random forest is presented with a new sample it takes the majority prediction made by each decision tree in the forest and makes the final prediction.
 
-#### Regression 
+#### Regression :
+
 Uses the average of each individual decision tree in the forest.
 
 Advantage :
@@ -250,7 +259,10 @@ Fast and effective for large datasets
 Flexibility to include data from previous node in the same tree 
 
 Disadvantage :
+
 A large amount of trees can make the model slow and not effective for real time predictions
+
+The classifier wont overfit the model if there are not right number of trees in the forest.
 
 No regularization to avoid overfitting, therefore super easy to be overfitting
 
