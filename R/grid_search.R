@@ -42,8 +42,13 @@ grid_search_rf <- function(df, params_range, target, n_fold = 3, scoring = c("ac
                          n_folds = n_fold, scoring = scoring)
   rf_grid$fit(df, target)
   result = rf_grid$best_iteration(metric = NULL)
+  p_params = list(n_estimaters = "ntree", max_features = "mtry", max_samples = "sampsize",
+                  min_samples_leaf = "nodesize", max_leaf_nodes = "maxnodes")
   for (i in names(params_range)){
-    params_[[i]] = result[[i]]
+    if (i %in% names(p_params)){
+      params_[[p_params[[i]]]] = result[[i]]
+    }
+
   }
   return(params_)
 }
