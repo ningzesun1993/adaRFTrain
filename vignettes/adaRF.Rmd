@@ -43,14 +43,7 @@ library(caret)
 library(superml)
 ```
 
-Load and modify in the Iris dataset 
 
-```{r data}
-data(iris)
-df = iris
-df$Species = as.factor(LabelEncoder$new()$fit_transform(df$Species))
-head(df)
-```
 
 ##  Decision Trees
 
@@ -135,6 +128,12 @@ The example of the decision tree:
 To generate the dataset, we used iris dataset and need to change the target species with label encoder
 
 
+```{r data}
+data(iris)
+df = iris
+df$Species = as.factor(LabelEncoder$new()$fit_transform(df$Species))
+head(df)
+```
 
 
 And we use our own function from our packages to train and predict the dataset:
