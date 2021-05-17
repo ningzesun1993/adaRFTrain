@@ -47,9 +47,12 @@ grid_search_rf <- function(df, params_range, target, n_fold = 3, scoring = c("ac
   for (i in names(params_range)){
     if (i %in% names(p_params)){
       params_[[p_params[[i]]]] = result[[i]]
+      print(result[[i]])
     }
-
   }
+  params_[['sampsize']] = NULL
+  params_[['mtry']] = NULL
+  params_[['strata']] = NULL
   return(params_)
 }
 

@@ -4,7 +4,7 @@ library(adaRFTrain)
 library(caret)
 library(tree)
 library(superml)
-
+install.packages('e1071', dependencies=TRUE)
 
 browseVignettes("adaRFTrain")
 

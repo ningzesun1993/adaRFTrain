@@ -41,6 +41,7 @@ devtools::load_all(".")
 library(adaRFTrain)
 library(caret)
 library(superml)
+library(MLmetrics)
 ```
 
 
@@ -165,7 +166,8 @@ target: the target of the model, have to be specified if formula is not
 ```{r dt}
 formula = "Species ~ ."
 dt_r = dt_train(df, formula)
-head(dt_r)
+# head(dt_r)
+confusionMatrix(dt_r$Species, dt_r$dt_p)
 ```
 
 
@@ -328,7 +330,8 @@ target: the target of the model, have to be specified if formula is not
 ```{r rf}
 formula = "Species ~ ."
 rf_r = rf_train(df, formula)
-head(rf_r)
+# head(rf_r)
+confusionMatrix(rf_r$Species, rf_r$rf_p)
 ```
 
 ```{r rf_code}
@@ -413,10 +416,10 @@ params_: the parameters of random forest, have to be a list with all parameters:
 
 ```{r grid_search}
 target = "Species"
-params_range = list(n_estimators = seq(50, 200, 10), max_depth = seq(2, 10, 2))
+params_range = list(n_estimators = seq(50, 200, 10))
 params = grid_search_rf(df, params_range, target = target)
-print(params)
-
+rf_grid = rf_train(df, target = target, params_ = params)
+confusionMatrix(rf_r$Species, rf_r$rf_p)
 ```
 
 
